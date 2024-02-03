@@ -20,7 +20,26 @@ class TodoList extends StatelessWidget {
               final todo = todos[index];
 
               return ListTile(
-                title: Text(todo.title),
+                title: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      todo.title,
+                      style: Theme.of(context).textTheme.headlineSmall,
+                    ),
+                    Row(
+                      children: [
+                        Text(todo.description),
+                        const SizedBox(width: 10),
+                        Text(
+                          todo.createdAt.toString(),
+                          style: Theme.of(context).textTheme.caption,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               );
             },
           );
